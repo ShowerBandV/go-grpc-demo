@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package ="../proto";
+
+service FirstService {
+    rpc HelloWorld (FirstServiceRequest) returns (FirstServiceResponse) {}
+}
+
+message FirstServiceRequest {
+    string Code = 1;
+    string Data= 2;
+    int32 Status =3;
+}
+
+message FirstServiceResponse {
+    string Code = 1;
+       string Data= 2;
+       int32 Status =3;
+}
+
+//protoc -I=proto/ proto/rpc.proto --go_out=plugins=grpc:proto
+
